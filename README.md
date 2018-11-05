@@ -16,7 +16,12 @@ re-written from the ground up using an asyncio-based event loop rather than geve
 Because of this, it only runs on Python 3.5 and above, whereas MailDump only runs on 
 Python 2.
 
+## Installation
 
+
+```bash 
+pip3 install mailmitt
+```
 
 ## Usage
 
