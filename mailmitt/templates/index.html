@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MailMitt</title>
+        <link rel="stylesheet"    href="/static/pure.min.css">
+        <link rel="stylesheet"    href="/static/pure-grids-responsive.min.css">
+        
+        <style>
+            .home-menu{
+                background:#eee;
+            }
+            body{
+                    font-size:small;
+            }
+            tr{
+                cursor: pointer;;
+            }
+            .pure-g > div {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            @media screen and (max-width: 48em){
+                .messages-box{
+                    max-height: 20em;
+                    overflow:auto;
+                }    
+            }
+            .message-box {
+                padding: 1em;
+            }
+            
+        </style>
+    </head>
+<body>
+
+
+    <div class="header">
+        <div class="home-menu pure-menu pure-menu-horizontal _pure-menu-fixed">
+            <a class="pure-menu-heading" href="/">MailMitt</a>
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item pure-menu"><a class="pure-button" href="/clear">Clear</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2 messages-box">
+        
+            <table class="pure-table pure-table-horizontal pure-table-striped" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Subject</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    %for i,msg in enumerate(messages):
+                        <tr onclick="console.log('hi');document.location='/?index={{i}}'">
+                            <td>{{msg['created_at'][11:19]}}</td>
+                            <td>{{msg['sender']}}</td>
+                            <td>{{','.join(msg['recipients']['to'])}}</td>
+                            <td>{{msg['subject']}}</td>
+                        </tr>
+                    %end
+                </tbody>
+            </table>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 message-box {">
+            %if message:
+                <h4>{{message['subject']}}</h4>
+                <p>From: {{message['sender']}}</p>
+                <a href="/messages/{{index}}.source">Source</a>
+                <a href="/messages/{{index}}.plain">Plain</a>
+                <a href="/messages/{{index}}.json">JSON</a>
+                <hr>
+                %for part in message['parts']:
+                    %if part['type']=='text/html':
+                        <b>{{part['type']}}</b>
+                        {{!part['body']}}
+                    %else:
+                        <b>{{part['type']}}</b>
+                        <pre>{{part['body']}}</pre>
+                    %end
+                    <hr>
+                %end
+                %else:
+                <i>No message selected</i>
+            %
+        </div>
+    </div>
+</body>
+</html>
