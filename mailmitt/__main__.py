@@ -4,6 +4,7 @@ import argparse
 
 from . import smtp_server
 from . import web_server
+from .__version__ import __version__
 
 
 def main():
@@ -34,6 +35,10 @@ def main():
         metavar="PORT",
         help="HTTP port (deault: 1080)",
     )
+    parser.add_argument(
+        "--version", action="version", version=f"mailmitt version {__version__}"
+    )
+
     args = parser.parse_args()
 
     loop = asyncio.get_event_loop()
