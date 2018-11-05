@@ -6,7 +6,7 @@ import aiosmtpd.smtp
 
 messages = []
 """
-    We don't currently provide any kind of serialization mechanism - all 
+    We don't currently provide any kind of serialization mechanism - all
     email data is simply held in memory in this data structure.
 """
 

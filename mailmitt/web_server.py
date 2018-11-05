@@ -1,7 +1,6 @@
 """
-    I'd rather use web.RouteTableDef, but that's a very recent addition 
+    I'd rather use web.RouteTableDef, but that's a very recent addition
     to aiohttp that isn't supported on python3.5 as far as I can tell.
-    
 """
 from . import smtp_server
 
@@ -13,7 +12,8 @@ from .utils import dumps
 
 import bottle
 
-# This is the only thing we use from Bottle - its excellent lightweight templating engine.
+# This is the only thing we use from Bottle -
+# its excellent lightweight templating engine.
 from bottle import template
 
 HERE = pathlib.Path(__file__).absolute().parent
