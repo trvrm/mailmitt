@@ -18,6 +18,7 @@ setuptools.setup(
     long_description=readme,
     author='Trevor Morgan',
     packages=['mailmitt'],
+    url='https://github.com/trvrm/mailmitt',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Programming Language :: Python :: 3.5',

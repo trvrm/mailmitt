@@ -1,2 +1,2 @@
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __description__ = "Simple SMTP server for testing mailing code."
