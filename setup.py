@@ -35,5 +35,7 @@ setuptools.setup(
             'mailmitt = mailmitt.__main__:main'
         ]
     },
-    include_package_data=True,
+    package_data={
+        'mailmitt': ['static/*', 'templates/*'],
+    }
 )
