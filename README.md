@@ -100,13 +100,14 @@ print(requests.get('http://localhost:1080/messages/0.plain').text.strip())
 ```
 
 
-Although this example is in Python, MailMitt can be accessed from SMTP client 
-libraries in any language.
-
 ```
 Hello
 This is a sample email
 ```
+
+
+Although this example is in Python, MailMitt can be accessed from SMTP client 
+libraries in any language.
 
 ## Webserver
 You will also be able to review your emails at http://localhost:1080/
